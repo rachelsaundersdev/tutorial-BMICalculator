@@ -14,6 +14,11 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var weightLabel: UILabel!
     
+    @IBOutlet weak var heightSlider: UISlider!
+    
+    
+    @IBOutlet weak var weightSlider: UISlider!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -32,5 +37,13 @@ class ViewController: UIViewController {
         
     }
     
+    @IBAction func calculatePressed(_ sender: UIButton) {
+        let height = heightSlider.value
+        let weight = weightSlider.value
+        
+        // the pow is telling height to be raised to the power of the number displayed (in this case 2)
+        let bmi = weight / pow(height, 2)
+        print(bmi)
+    }
 }
 
