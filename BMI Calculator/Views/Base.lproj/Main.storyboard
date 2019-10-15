@@ -122,6 +122,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RsM-Hw-JMq"/>
                     </view>
+                    <connections>
+                        <outlet property="heightLabel" destination="2GN-cs-U2z" id="yxL-Qm-efX"/>
+                        <outlet property="weightLabel" destination="qI8-dT-A9l" id="2w8-b8-xpQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
