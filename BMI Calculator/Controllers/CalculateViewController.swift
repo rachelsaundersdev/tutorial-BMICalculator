@@ -8,14 +8,15 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class CalculateViewController: UIViewController {
+    
+    var bmiValue = "0.0"
 
     @IBOutlet weak var heightLabel: UILabel!
     
     @IBOutlet weak var weightLabel: UILabel!
     
     @IBOutlet weak var heightSlider: UISlider!
-    
     
     @IBOutlet weak var weightSlider: UISlider!
     
@@ -43,7 +44,19 @@ class ViewController: UIViewController {
         
         // the pow is telling height to be raised to the power of the number displayed (in this case 2)
         let bmi = weight / pow(height, 2)
-        print(bmi)
+        bmiValue = String(format: "%.1f", bmi)
+        
+        // goes to the next view controller (connected by Segue)
+        self.performSegue(withIdentifier: "goToResult", sender: self)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToResult" {
+            let destinationVC = segue.destination as! ResultViewController
+            destinationVC.bmiValue = bmiValue
+        }
+        
     }
 }
 
